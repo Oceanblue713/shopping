@@ -1,11 +1,12 @@
 import React from 'react';
 
-const Navbar = () => {
+
+const Cart = () => {
   return (
     <div>
-      <h3>Nav</h3>
+      <h3>Cart</h3>
     </div>
   );
 }
 
-export default Navbar;
+export default Cart;
