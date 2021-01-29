@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { Fragment, useState } from 'react';
 import Product from './Product';
+import Title from './Title';
+import { storeProducts } from '../data';
 
 const ProductList = () => {
+
+  const [products, setProducts] = useState([storeProducts]);
+
   return (
-    <div>
-      <h3>Product List</h3>
-      <Product />
-    </div>
+    <Fragment>
+      <div className="py-5">
+        <div className="container">
+          <div className="row">
+            <Title name="our" title="products" />
+          </div>
+        </div>
+      </div>
+    </Fragment>
   );
 }
 
