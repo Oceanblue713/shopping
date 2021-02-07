@@ -1,22 +1,31 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import Product from './Product';
 import Title from './Title';
 import { storeProducts } from '../data';
+import {ProductConsumer} from '../context';
 
 const ProductList = () => {
 
   const [products, setProducts] = useState([storeProducts]);
 
+  console.log(storeProducts);
+
   return (
-    <Fragment>
+    <React.Fragment>
       <div className="py-5">
         <div className="container">
+          <Title name="our" title="products" />
+
           <div className="row">
-            <Title name="our" title="products" />
+            <ProductConsumer>
+              {value => {
+                return <h1>{value}</h1>
+              }}
+            </ProductConsumer>
           </div>
         </div>
       </div>
-    </Fragment>
+    </React.Fragment>
   );
 }
 
