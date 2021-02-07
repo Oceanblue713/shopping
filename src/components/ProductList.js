@@ -4,7 +4,6 @@ import Title from './Title';
 import { storeProducts } from '../data';
 import {ProductConsumer} from '../context';
 
-
 const ProductList = () => {
 
   const [products, setProducts] = useState([storeProducts]);
