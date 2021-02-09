@@ -7,11 +7,20 @@ const ProductContext = React.createContext();
 
 const ProductProvider = (props) => {
 
-  const [products, setProducts] = useState([storeProducts]);
+  const [products, setProducts] = useState({storeProducts});
+  //const [detailProduct, setDetailProduct] = useState(detailProduct);
+
+  const handleDetail = () => {
+    console.log('hello from detail');
+  }
+
+  const addToCart = () => {
+    console.log('hello from add to cart');
+  }
 
   return(
     <ProductContext.Provider value={{
-
+      ...products
     }}>
       {props.children}
     </ProductContext.Provider>

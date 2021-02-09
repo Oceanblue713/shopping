@@ -6,8 +6,6 @@ import {ProductConsumer} from '../context';
 
 const ProductList = () => {
 
-  const [products, setProducts] = useState([storeProducts]);
-
   console.log(storeProducts);
 
   return (
