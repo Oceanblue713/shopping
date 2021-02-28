@@ -7,8 +7,8 @@ const ProductContext = React.createContext();
 
 const ProductProvider = (props) => {
 
-  const [products, setProducts] = useState({storeProducts});
-  //const [detailProduct, setDetailProduct] = useState(detailProduct);
+  const [products, setProducts] = useState(storeProducts);
+  const [detail, setDetail] = useState(detailProduct);
 
   const handleDetail = () => {
     console.log('hello from detail');
@@ -19,9 +19,7 @@ const ProductProvider = (props) => {
   }
 
   return(
-    <ProductContext.Provider value={{
-      ...products
-    }}>
+    <ProductContext.Provider value={{products, detail, handleDetail: handleDetail, addToCart: addToCart}}>
       {props.children}
     </ProductContext.Provider>
   )
