@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "bootstrap": "^4.6.0",
+    "bootstrap-icons": "^1.4.0",
     "react-router-dom": "^5.2.0",
     "styled-components": "^5.2.1"
   }
