@@ -40,6 +40,21 @@ const Details= () => {
                 <p className="text-muted lead">
                   {info}
                 </p>
+                { /* Button */ }
+                <div>
+                  <Link to='/'>
+                    <ButtonContainer>
+                      back to products
+                    </ButtonContainer>
+                  </Link>
+                  <ButtonContainer 
+                                   disabled={inCart ? true: false}
+                                   onClick={() => {
+                                     value.addToCart(id);
+                                   }}>
+                    {inCart? 'inCart': 'add to cart'}
+                  </ButtonContainer>
+                </div>
               </div>
             </div>
           </div>
