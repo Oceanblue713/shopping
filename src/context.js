@@ -31,8 +31,8 @@ const ProductProvider = (props) => {
     console.log('hello from detail');
   }
 
-  const addToCart = () => {
-    console.log('hello from add to cart');
+  const addToCart = (id) => {
+    console.log(`hello from add to cart ${id}`);
   }
 
   // const tester =() => {
