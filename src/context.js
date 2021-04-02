@@ -27,9 +27,17 @@ const ProductProvider = (props) => {
     setProducts(storeProducts);
   });
 
-  const handleDetail = () => {
-    console.log('hello from detail');
+  const getItem = (id) => {
+    const product = products.find(item => item.id === id);
+    return product;
   }
+
+  const handleDetail = (id) => {
+    const product = getItem();
+    setDetail(() => {
+      return { detailProduct: product}
+    });
+  };
 
   const addToCart = (id) => {
     console.log(`hello from add to cart ${id}`);
