@@ -33,9 +33,9 @@ const ProductProvider = (props) => {
   }
 
   const handleDetail = (id) => {
-    const product = getItem();
+    const product = getItem(id);
     setDetail(() => {
-      return { detailProduct: product}
+      return { detail: product}
     });
   };
 

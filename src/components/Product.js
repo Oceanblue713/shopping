@@ -14,14 +14,17 @@ const Product = (props) => {
         <ProductConsumer>
           {(value) => (
                     <div className="img-container p-5" 
-                    onClick={() => console.log('clicked on img')}>
-       
+                    onClick={() => 
+                      value.handleDetail(id)
+                    }>
                  <Link to="/details">
                    <img src={img} alt="product" className='card-img-top' />
                  </Link>
                  <button className="cart-btn" 
                          disabled={inCart ? true : false} 
-                         onClick={() => {console.log('add to the cart')}}>
+                         onClick={() => {
+                           value.addToCart(id);
+                         }}>
                  {inCart ? (<p className="text-capitalize mb-0" disabled>{" "}in Cart</p>) : <i className="bi bi-basket" />}
                  </button>
                </div>
