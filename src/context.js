@@ -8,7 +8,7 @@ const ProductContext = React.createContext();
 const ProductProvider = (props) => {
 
   const [products, setProducts] = useState([]);
-  const [detail, setDetail] = useState(detailProduct);
+  const [detail, setDetail] = useState();
 
   // setProducts( () => {
   //   let tempProducts = [];
@@ -34,13 +34,17 @@ const ProductProvider = (props) => {
 
   const handleDetail = (id) => {
     const product = getItem(id);
-    setDetail(() => {
-      return { detail: product}
-    });
+    setDetail(product);
   };
 
   const addToCart = (id) => {
-    console.log(`hello from add to cart ${id}`);
+    let tempProducts = [...products];
+    const index = products.indexOf(getItem(id));
+    const product = tempProducts[index];
+    product.inCart = true;
+    product.count = 1;
+    const price = product.price;
+    product.total = price;
   }
 
   // const tester =() => {
