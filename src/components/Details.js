@@ -7,7 +7,7 @@ const Details= () => {
   return (
     <ProductConsumer>
       {value => {
-        const {id, company, img, info, price, title, inCart} = value.detail;
+        const { id, company, img, info, price, title, inCart} = value.detail;
         return (
           <div className="container py-5">
             {/* *title */}

@@ -9,6 +9,7 @@ const ProductProvider = (props) => {
 
   const [products, setProducts] = useState([]);
   const [detail, setDetail] = useState();
+  const [cart, setCart] = useState([]);
 
   // setProducts( () => {
   //   let tempProducts = [];
@@ -39,12 +40,16 @@ const ProductProvider = (props) => {
 
   const addToCart = (id) => {
     let tempProducts = [...products];
-    const index = products.indexOf(getItem(id));
+    const index = tempProducts.indexOf(getItem(id));
     const product = tempProducts[index];
+    console.log(product);
     product.inCart = true;
     product.count = 1;
     const price = product.price;
     product.total = price;
+    setProducts(tempProducts);
+    setCart(cart, product);
+    console.log(products)
   }
 
   // const tester =() => {
