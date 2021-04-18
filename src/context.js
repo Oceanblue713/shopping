@@ -50,8 +50,9 @@ const ProductProvider = (props) => {
     const price = product.price;
     product.total = price;
     setProducts(tempProducts);
-    setCart(cart, product);
-    console.log(products)
+    setCart([...cart, product]);
+    console.log(tempProducts);
+    console.log(cart);
   }
 
   const openModal = (id) => {
@@ -79,6 +80,9 @@ const ProductProvider = (props) => {
   return(
     <ProductContext.Provider value={{products, 
                                      detail, 
+                                     cart,
+                                     modalOpen,
+                                     modalProduct,
                                      handleDetail: handleDetail, 
                                      addToCart: addToCart,
                                      openModal: openModal,
