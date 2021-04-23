@@ -8,7 +8,7 @@ const ProductContext = React.createContext();
 const ProductProvider = (props) => {
 
   const [products, setProducts] = useState([]);
-  const [detail, setDetail] = useState();
+  const [detail, setDetail] = useState(detailProduct);
   const [cart, setCart] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalProduct, setModalProduct] = useState(detailProduct);
@@ -27,8 +27,13 @@ const ProductProvider = (props) => {
   // });
 
   useEffect(() => {
-    setProducts(storeProducts);
-  }, []);
+    let tempProducts = [];
+    storeProducts.forEach(item => {
+      const singleItem = {...item};
+      tempProducts = [...tempProducts, singleItem];
+    })
+    setProducts(tempProducts);
+  } ,[]);
 
   const getItem = (id) => {
     const product = products.find(item => item.id === id);
