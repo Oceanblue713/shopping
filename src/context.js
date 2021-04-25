@@ -12,6 +12,9 @@ const ProductProvider = (props) => {
   const [cart, setCart] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalProduct, setModalProduct] = useState(detailProduct);
+  const [cartSubTotal, setCartSubTotal] = useState(0);
+  const [cartTax, setCartTax] = useState(0);
+  const [cartTotal, setCartTotal] = useState(0);
 
   // setProducts( () => {
   //   let tempProducts = [];
@@ -70,6 +73,22 @@ const ProductProvider = (props) => {
     setModalOpen(false);
   }
 
+  const increment = (id) => {
+    console.log('this is increment method');
+  }
+
+  const decrement = (id) => {
+    console.log('this is decrement method');
+  }
+
+  const removeItem = (id) => {
+    console.log('this is removeItem method');
+  }
+
+  const clearCart = () => {
+    console.log('this is clearCart method');
+  }
+
   // const tester =() => {
   //   console.log('State Products :', products[0].inCart);
   //   console.log('Data Products: ', storeProducts[0].inCart);
@@ -88,10 +107,18 @@ const ProductProvider = (props) => {
                                      cart,
                                      modalOpen,
                                      modalProduct,
+                                     cartSubTotal,
+                                     cartTax,
+                                     cartTotal,
                                      handleDetail: handleDetail, 
                                      addToCart: addToCart,
                                      openModal: openModal,
-                                     closeModal: closeModal}} >
+                                     closeModal: closeModal,
+                                     increment: increment,
+                                     decrement: decrement,
+                                     removeItem: removeItem,
+                                     clearCart: clearCart,
+                                     }} >
       {props.children}
     </ProductContext.Provider>
   )
