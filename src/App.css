@@ -17,3 +17,24 @@ body {
   text-transform: uppercase;
 }
 
+.text-blue {
+  color: var(--mainBlue);
+}
+
+.text-bright {
+  color: var(--lightBlue);
+}
+
+.btn-black {
+  background-color: transparent;
+  text-transform: capitalize;
+  font-size: 0.8 rem !important;
+  color: var(--mainDark);
+  border-radius: 0 im !important;
+  border: 0.1rem solid var(--mainDark) !important;
+}
+
+.btn-black:hover {
+  background-color: var(--mainDark) !important;
+  color: var(--mainWhite) !important;
+}
