@@ -9,7 +9,7 @@ const ProductProvider = (props) => {
 
   const [products, setProducts] = useState([]);
   const [detail, setDetail] = useState(detailProduct);
-  const [cart, setCart] = useState([storeProducts]);
+  const [cart, setCart] = useState(storeProducts);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalProduct, setModalProduct] = useState(detailProduct);
   const [cartSubTotal, setCartSubTotal] = useState(0);

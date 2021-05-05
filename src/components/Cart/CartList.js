@@ -3,8 +3,7 @@ import CartItem from './CartItem';
 
 const CartList = ({ value }) => {
 
-  const { cart } = value;
-  console.log(`this is from  ${value} and ${cart}`);
+  const {cart} = value;
 
   return (
     <div className="container-fluid">
