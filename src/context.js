@@ -9,7 +9,7 @@ const ProductProvider = (props) => {
 
   const [products, setProducts] = useState([]);
   const [detail, setDetail] = useState(detailProduct);
-  const [cart, setCart] = useState(storeProducts);
+  const [cart, setCart] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalProduct, setModalProduct] = useState(detailProduct);
   const [cartSubTotal, setCartSubTotal] = useState(0);
@@ -87,6 +87,17 @@ const ProductProvider = (props) => {
 
   const clearCart = () => {
     console.log('this is clearCart method');
+  }
+
+  const addTotals = () => {
+    let subTotal = 0;
+    cart.map(item => subTotal += item.total);
+    const tempTax = subTotal * 0.1;
+    const tax = parseFloat(tempTax.toFixed(2));
+    const total = subTotal + tax;
+    setCartSubTotal(subTotal);
+    setCartTax(tax);
+    setCartTotal(total);
   }
 
   // const tester =() => {
