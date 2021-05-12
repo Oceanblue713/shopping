@@ -61,6 +61,7 @@ const ProductProvider = (props) => {
     setCart([...cart, product]);
     console.log(tempProducts);
     console.log(cart);
+    addTotals();
   }
 
   const openModal = (id) => {
@@ -86,7 +87,7 @@ const ProductProvider = (props) => {
   }
 
   const clearCart = () => {
-    console.log('this is clearCart method');
+    setCart([], () => { setProducts()}, () => { addTotals()});
   }
 
   const addTotals = () => {
