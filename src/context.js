@@ -83,7 +83,17 @@ const ProductProvider = (props) => {
   }
 
   const removeItem = (id) => {
-    console.log('this is removeItem method');
+    let tempProducts = [...products];
+    let tempCart = [...cart];
+    tempCart = tempCart.filter(item => item.id !== id );
+    const index = tempProducts.indexOf(getItem(id));
+    let removedProduct = tempProducts[index];
+    removedProduct.inCart = false;
+    removedProduct.count = 0;
+    removedProduct.total = 0;
+    setCart([...tempCart]);
+    setProducts([...tempProducts]);
+    addTotals();
   }
 
   const clearCart = () => {
