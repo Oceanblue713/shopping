@@ -36,6 +36,7 @@ const ProductProvider = (props) => {
       tempProducts = [...tempProducts, singleItem];
     })
     setProducts(tempProducts);
+    setCart(cart);
   } ,[]);
 
   const getItem = (id) => {
@@ -52,15 +53,12 @@ const ProductProvider = (props) => {
     let tempProducts = [...products];
     const index = tempProducts.indexOf(getItem(id));
     const product = tempProducts[index];
-    console.log(product);
     product.inCart = true;
     product.count = 1;
     const price = product.price;
     product.total = price;
     setProducts(tempProducts);
     setCart([...cart, product]);
-    console.log(tempProducts);
-    console.log(cart);
     addTotals();
   }
 
@@ -75,11 +73,29 @@ const ProductProvider = (props) => {
   }
 
   const increment = (id) => {
-    console.log('this is increment method');
+    let tempCart = cart;
+    const selectedProduct = tempCart.find(item => item.id === id);
+    const index = tempCart.indexOf(selectedProduct);
+    const product = tempCart[index];
+    product.count += 1;
+    product.total = product.count * product.price
+    setCart(tempCart);
+    addTotals();
   }
 
   const decrement = (id) => {
-    console.log('this is decrement method');
+    let tempCart = cart;
+    const selectedProduct = tempCart.find(item => item.id === id);
+    const index = tempCart.indexOf(selectedProduct);
+    const product = tempCart[index];
+    product.count -= 1;
+    if(product.count === 0){
+      removeItem(id);
+    } else {
+      product.total = product.count * product.price;
+      setCart(tempCart);
+      addTotals();
+    }
   }
 
   const removeItem = (id) => {
@@ -92,8 +108,7 @@ const ProductProvider = (props) => {
     removedProduct.count = 0;
     removedProduct.total = 0;
     setCart([...tempCart]);
-    setProducts([...tempProducts]);
-    addTotals();
+    setProducts([...tempProducts], () => {addTotals()});
   }
 
   const clearCart = () => {
