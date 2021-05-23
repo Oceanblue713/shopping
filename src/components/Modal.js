@@ -10,7 +10,6 @@ const Modal = () => {
       {(value) => {
         const {modalOpen, closeModal} = value;
         const { img, title, price} = value.modalProduct;
-        console.log(value.modalOpen)
         if(!modalOpen){
           return null;
         } else {
